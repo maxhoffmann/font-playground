@@ -12,6 +12,7 @@
 @baseline-color: #aaa;
 
 @container-width: 600px;
+@container-max-width: 88%;
 
 .baseline-grid(@enabled) when (@enabled = true) {
 	background-image: linear-gradient(to top, @baseline-color, rgba(255,255,255,0) 1px);
@@ -38,6 +39,7 @@ body {
 }
 
 .container {
-	width: @container-width;
 	margin: 0 auto;
+	width: @container-width;
+	max-width: @container-max-width;
 }
