@@ -1,0 +1,22 @@
+{
+  "name": "fonttester",
+  "version": "0.1.0",
+  "authors": [
+    "Maximilian Hoffmann <accounts@maximilianhoffmann.com>"
+  ],
+  "description": "open source web font tester",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "less": "~1.6.1",
+    "normalize-css": "~3.0.0"
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>FontTester</title>
+	<meta name="description" content="Test your webfonts.">
+	<meta name="author" content="Maximilian Hoffmann">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+	<link rel="stylesheet" href="/css/app.css">
+	<script>less = {env: 'production', async: true}</script>
+	<link rel="stylesheet/less" href="/less/main.less">
+	<script type="text/javascript" src="/bower_components/less/dist/less-1.6.1.min.js"></script>
+</head>
+<body>
+
+	<button id="controls-show" class="hidden">&#9776;</button>
+	<form action="" id="controls">
+		<button id="controls-hide">&times;</button>
+		<fieldset>
+			<legend>Typography</legend>
+			<label for="font-family">font family</label><input id="font-family" type="text" value="Helvetica Neue" placeholder="Helvetica Neue" name="font-family" autofocus data-less>
+			<label for="font-smoothing">font smoothing</label><input id="font-smoothing" type="text" value="off" placeholder="off" name="font-smoothing" data-less>
+			<label for="code">html for webfonts</label><input id="code" type="text" value="" placeholder="html" name="code" data-html>
+		</fieldset>
+		<fieldset>
+			<legend>Colors</legend>
+			<label for="color">color</label><input id="color" type="text" value="#333" placeholder="#333" name="color" data-less>
+			<label for="background-color">background color</label><input id="background-color" type="text" value="#fff" placeholder="#fff" name="background-color" data-less>
+		</fieldset>
+		<fieldset>
+			<legend>Baseline</legend>
+			<label for="baseline-grid">enabled</label><input id="baseline-grid" type="text" value="true" placeholder="true" name="baseline-grid" data-less>
+			<label for="baseline-color">color</label><input id="baseline-color" type="text" value="#aaa" placeholder="#aaa" name="baseline-color" data-less>
+			<label for="baseline-height">height</label><input id="baseline-height" type="text" value="24px" placeholder="24px" name="baseline-height" data-less>
+		</fieldset>
+		<fieldset>
+			<legend>Layout</legend>
+			<label for="container-width">width</label><input id="container-width" type="text" value="600px" placeholder="600px" name="container-width" data-less>
+		</fieldset>
+	</form>
+
+	<section class="container">
+
+		<h1 contenteditable>First Headline</h1>
+
+		<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<h2 contenteditable>Second Headline</h2>
+
+		<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<h3 contenteditable>Third Headline</h3>
+
+		<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<h4 contenteditable>Fourth Headline</h4>
+
+		<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<h5 contenteditable>Fifth Headline</h5>
+
+		<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<h6 contenteditable>Sixth Headline</h6>
+
+		<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</section>
+
+	<div id="external"></div>
+
+	<script>
+		var form = [].slice.call(document.querySelectorAll('form'));
+		form.forEach(addListener('submit', preventDefault));
+
+		var lessInputs = [].slice.call(document.querySelectorAll('input[data-less]'));
+		lessInputs.forEach(addListener('input', updateLessVariables));
+
+		var htmlInputs = [].slice.call(document.querySelectorAll('input[data-html]'));
+		htmlInputs.forEach(addListener('blur', updateHtml));
+
+		var showControlsButton = document.getElementById('controls-show');
+		var hideControlsButton = document.getElementById('controls-hide');
+		showControlsButton.addEventListener('click', toggleControls, false);
+		hideControlsButton.addEventListener('click', toggleControls, false);
+
+		function toggleControls() {
+			hideControlsButton.parentElement.classList.toggle('hidden');
+			showControlsButton.classList.toggle('hidden');
+		}
+
+		function addListener(event, listener) {
+			return function(element) {
+				element.addEventListener(event, listener, false);
+			}
+		}
+		function updateLessVariables(event) {
+			var variables = lessInputs.reduce(getLessVariables, {});
+			console.log(variables);
+			less.modifyVars(variables);
+		}
+		function getLessVariables(variables, input) {
+			variables[input.name] = input.value;
+			return variables;
+		}
+		function updateHtml(event) {
+			var element = event.srcElement;
+			var insertionPoint = document.getElementById('external');
+			console.log(element, insertionPoint);
+			insertionPoint.innerHTML = element.value;
+		}
+		function preventDefault(event) {
+			event.preventDefault();
+		}
+	</script>
+</body>
+</html>
