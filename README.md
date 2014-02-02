@@ -1,6 +1,6 @@
 # fonttester
 
-typetester lets you play around with your purchased web fonts.
+FontTester lets you play around with your purchased web fonts.
 
 # License
 
