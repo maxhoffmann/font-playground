@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
 	<link rel="stylesheet" href="css/app.css">
 	<script>less = {env: 'production', async: true}</script>
-	<link rel="stylesheet/less" href="less/main.less">
+	<link rel="stylesheet/less" href="less/generated.less">
 	<script type="text/javascript" src="bower_components/less/dist/less-1.6.1.min.js"></script>
 </head>
 <body>
@@ -20,18 +20,18 @@
 		<fieldset>
 			<legend>Typography</legend>
 			<label for="font-family">font family</label><input id="font-family" type="text" value="Helvetica Neue" placeholder="Helvetica Neue" name="font-family" autofocus data-less>
-			<label for="font-smoothing">font smoothing</label><input id="font-smoothing" type="text" value="off" placeholder="off" name="font-smoothing" data-less>
+			<label for="font-smoothing">font smoothing</label><input id="font-smoothing" type="text" value="true" placeholder="true" name="font-smoothing" data-less>
 			<label for="code">webfont embed code</label><input id="code" type="text" value="" placeholder="html" name="code" data-html>
 		</fieldset>
 		<fieldset>
 			<legend>Colors</legend>
-			<label for="color">color</label><input id="color" type="text" value="#333" placeholder="#333" name="color" data-less>
-			<label for="background-color">background color</label><input id="background-color" type="text" value="#fff" placeholder="#fff" name="background-color" data-less>
+			<label for="color">color</label><input id="color" type="text" value="#fff" placeholder="#fff" name="color" data-less>
+			<label for="background-color">background color</label><input id="background-color" type="text" value="hsl(190,40%,50%)" placeholder="hsl(190,40%,50%)" name="background-color" data-less>
 		</fieldset>
 		<fieldset>
 			<legend>Baseline</legend>
 			<label for="baseline-grid">enabled</label><input id="baseline-grid" type="text" value="true" placeholder="true" name="baseline-grid" data-less>
-			<label for="baseline-color">color</label><input id="baseline-color" type="text" value="#aaa" placeholder="#aaa" name="baseline-color" data-less>
+			<label for="baseline-color">color</label><input id="baseline-color" type="text" value="rgba(255,255,255,.3)" placeholder="rgba(255,255,255,.3)" name="baseline-color" data-less>
 			<label for="baseline-height">height</label><input id="baseline-height" type="text" value="24px" placeholder="24px" name="baseline-height" data-less>
 		</fieldset>
 		<fieldset>
@@ -99,49 +99,6 @@
 
 	<div id="external"></div>
 
-	<script>
-		var form = [].slice.call(document.querySelectorAll('form'));
-		form.forEach(addListener('submit', preventDefault));
-
-		var lessInputs = [].slice.call(document.querySelectorAll('input[data-less]'));
-		lessInputs.forEach(addListener('input', updateLessVariables));
-
-		var htmlInputs = [].slice.call(document.querySelectorAll('input[data-html]'));
-		htmlInputs.forEach(addListener('blur', updateHtml));
-
-		var showControlsButton = document.getElementById('controls-show');
-		var hideControlsButton = document.getElementById('controls-hide');
-		showControlsButton.addEventListener('click', toggleControls, false);
-		hideControlsButton.addEventListener('click', toggleControls, false);
-
-		function toggleControls() {
-			hideControlsButton.parentElement.classList.toggle('hidden');
-			showControlsButton.classList.toggle('hidden');
-		}
-
-		function addListener(event, listener) {
-			return function(element) {
-				element.addEventListener(event, listener, false);
-			}
-		}
-		function updateLessVariables(event) {
-			var variables = lessInputs.reduce(getLessVariables, {});
-			console.log(variables);
-			less.modifyVars(variables);
-		}
-		function getLessVariables(variables, input) {
-			variables[input.name] = input.value;
-			return variables;
-		}
-		function updateHtml(event) {
-			var element = event.srcElement;
-			var insertionPoint = document.getElementById('external');
-			console.log(element, insertionPoint);
-			insertionPoint.innerHTML = element.value;
-		}
-		function preventDefault(event) {
-			event.preventDefault();
-		}
-	</script>
+	<script src="js/app.js"></script>
 </body>
 </html>

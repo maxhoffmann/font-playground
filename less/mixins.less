@@ -1,0 +1,10 @@
+.baseline-grid(@enabled) when (@enabled) {
+	background-image: linear-gradient(to top, @baseline-color, rgba(255,255,255,0) 1px);
+	background-size: 100% @baseline-height;
+	background-position: 0 @baseline-offset;
+}
+
+.font-smoothing(@enabled) when (@enabled) {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

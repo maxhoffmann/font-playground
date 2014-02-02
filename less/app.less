@@ -1,0 +1,100 @@
+[contenteditable] {
+	&:focus {
+		outline: 0;
+	}
+	&:hover {
+		background-color: rgba(0,0,0,.07);
+	}
+}
+
+#controls {
+	position: relative;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	padding: 15px;
+	width: 210px;
+	font-family: Helvetica Neue, sans-serif;
+	background-color: #fff;
+	background-color: rgba(255,255,255,.9);
+	border-radius: 4px;
+	box-shadow: 0 3px 5px rgba(0,0,0,.3);
+
+	fieldset {
+		margin: 10px 0;
+		padding: 0;
+		border: 0;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+	}
+
+	legend {
+		display: block;
+		font-weight: bold;
+		margin-bottom: 10px;
+		color: #333;
+	}
+
+	label {
+		display: block;
+		margin-top: 10px;
+		padding-left: 10px;
+		line-height: 16px;
+		text-transform: uppercase;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		color: #999;
+	}
+
+	input {
+		display: block;
+		margin-left: 5px;
+		padding: 5px;
+		width: 183px;
+		height: 12px;
+		font-size: 14px;
+		font-family: Menlo, Monaco, monospace;
+		background-color: white;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		color: #333;
+
+		&:focus,
+		&:hover {
+			border: 1px solid #ddd;
+			outline: 0;
+		}
+
+	}
+
+}
+
+#controls-show,
+#controls-hide {
+	color: #333;
+	border: 0;
+	background: transparent;
+}
+#controls-show:focus,
+#controls-hide:focus {
+	outline: 0;
+	color: #fff;
+}
+#controls-show {
+	position: fixed;
+	top: 12px;
+	right: 12px;
+}
+#controls-hide {
+	position: absolute;
+	top: 0;
+	right: 5px;
+}
+
+.hidden {
+	display: none;
+}
