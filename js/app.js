@@ -13,8 +13,7 @@ showControlsButton.addEventListener('click', toggleControls, false);
 hideControlsButton.addEventListener('click', toggleControls, false);
 
 function toggleControls() {
-	hideControlsButton.parentElement.classList.toggle('hidden');
-	showControlsButton.classList.toggle('hidden');
+	document.body.classList.toggle('show-controls');
 }
 
 function addListener(event, listener) {
