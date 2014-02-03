@@ -8,126 +8,41 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="stylesheet" href="css/app.css">
 	<script>less = {env: 'production', async: true}</script>
-	<link rel="stylesheet/less" href="less/generated.less">
+	<link rel="stylesheet/less" href="less/runtime.less">
 	<script type="text/javascript" src="bower_components/less/dist/less-1.6.1.min.js"></script>
 </head>
-<body class="show-controls">
+<body class="controls-visible">
 
-	<div id="view">
-		<article class="container">
+	<div id="modes">
 
-			<button id="controls-show">&#9776;</button>
+		<form id="mode-edit">
+			<fieldset class="container">
+				<textarea id="mode-edit-content" autoresize autofocus># FontTester
 
-			<h1 contenteditable>First Headline</h1>
+## by [Max](http://maximilianhoffmann.com)
 
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+Test your webfonts with markdown.
 
-			<h2 contenteditable>Second Headline</h2>
+1. Insert embed code of your service.
+2. Choose an element.
+3. Design it.
 
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+__Note:__ This app is still in an early state.
 
-			<h3 contenteditable>Third Headline</h3>
+Stay up to date via twitter: [@max_hoffmann](http://twitter.maximilianhoffmann.com).</textarea>
+			</fieldset>
+		</form>
 
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<div id="mode-view" class="container hidden"></div>
 
-			<h4 contenteditable>Fourth Headline</h4>
-
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			<h5 contenteditable>Fifth Headline</h5>
-
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			<h6 contenteditable>Sixth Headline</h6>
-
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			<ul>
-				<li contenteditable>one</li>
-				<li contenteditable>two</li>
-				<li contenteditable>three</li>
-			</ul>
-
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			<ol>
-				<li contenteditable>first</li>
-				<li contenteditable>second</li>
-				<li contenteditable>third</li>
-			</ol>
-
-			<p contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-			<blockquote contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.</blockquote>
-		</article>
 	</div>
 
-	<form id="controls" autocomplete="off">
-		<button id="controls-hide">&times;</button>
-		<fieldset>
-			<legend>Typography</legend>
-			<label for="font-family">font family</label><input id="font-family" type="text" value="Helvetica Neue" placeholder="Helvetica Neue" name="font-family" autofocus data-less>
-			<label for="font-smoothing">font smoothing (Mac)</label><input id="font-smoothing" type="text" value="true" placeholder="true" name="font-smoothing" data-less>
-			<label for="code">webfont embed code</label><input id="code" type="text" value="" placeholder="html" name="code" data-html>
-		</fieldset>
-		<fieldset>
-			<legend>Colors</legend>
-			<label for="color">color</label><input id="color" type="text" value="#fff" placeholder="#fff" name="color" data-less>
-			<label for="background-color">background color</label><input id="background-color" type="text" value="hsl(190,40%,50%)" placeholder="hsl(190,40%,50%)" name="background-color" data-less>
-		</fieldset>
-		<fieldset>
-			<legend>Baseline</legend>
-			<label for="baseline-grid">enabled</label><input id="baseline-grid" type="text" value="true" placeholder="true" name="baseline-grid" data-less>
-			<label for="baseline-height">height</label><input id="baseline-height" type="text" value="24px" placeholder="24px" name="baseline-height" data-less>
-		</fieldset>
-		<fieldset>
-			<legend>Layout</legend>
-			<label for="container-width">width</label><input id="container-width" type="text" value="600px" placeholder="600px" name="container-width" data-less>
-		</fieldset>
-	</form>
+	<button id="controls-show" class="button button-transparent">&#9776;</button>
 
-	<div id="external"></div>
+	<div id="controls">
+		<button id="mode-toggle" class="button">switch to html</button><button id="controls-hide" class="button button-transparent">&times;</button>
+	</div>
+
 	<script src="js/bundle.js"></script>
 </body>
 </html>

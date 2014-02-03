@@ -1,0 +1,27 @@
+.button {
+	border: 2px solid #444;
+	background: transparent;
+	font-weight: bold;
+	.font-smoothing(true);
+	vertical-align: top;
+	transition: box-shadow .5s;
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover,
+	&:active {
+		box-shadow: inset 0 0 0 30px #444;
+	}
+}
+
+.button-transparent {
+	border: 0;
+	background: transparent;
+
+	&:hover,
+	&:active {
+		box-shadow: none;
+	}
+}
