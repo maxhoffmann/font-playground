@@ -1,4 +1,4 @@
-# fonttester
+# FontTester
 
 FontTester lets you play around with your purchased web fonts.
 
