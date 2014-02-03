@@ -1,13 +1,13 @@
 var parse = require('marked');
 
 var button = document.getElementById('mode-toggle');
-var markdown = document.getElementById('mode-edit-content').value;
+var markdown = document.getElementById('mode-edit-content');
 var editMode = document.getElementById('mode-edit');
 var viewMode = document.getElementById('mode-view');
 
 function toggleMode() {
 	if (viewMode.classList.contains('hidden')) {
-		viewMode.innerHTML = parse(markdown);
+		viewMode.innerHTML = parse(markdown.value);
 		button.textContent = 'switch to markdown';
 	} else {
 		button.textContent = 'switch to html';
