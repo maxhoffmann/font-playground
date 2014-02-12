@@ -1,6 +1,6 @@
-# FontTester
+# Font Playground
 
-FontTester lets you play around with your purchased web fonts.
+Font Playground lets you try out your purchased web fonts.
 
 # License
 
