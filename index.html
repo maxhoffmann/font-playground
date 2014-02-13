@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>FontTester</title>
-	<meta name="description" content="Test your webfonts.">
+	<title>Font Playground</title>
+	<meta name="description" content="Test your purchased webfonts.">
 	<meta name="author" content="Maximilian Hoffmann">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="stylesheet" href="css/app.css">
@@ -17,11 +17,11 @@
 
 		<form id="mode-edit">
 			<fieldset class="container">
-				<textarea id="mode-edit-content" autoresize autofocus># Webfont Playground
+				<textarea id="mode-edit-content" autoresize autofocus># Font Playground
 
 ## by [Max](http://maximilianhoffmann.com)
 
-Play around with your purchased webfonts.
+Test your purchased webfonts.
 
 1. Insert the id of your webfont service.
 2. Click on an element.
@@ -41,8 +41,20 @@ Stay up to date via twitter: [@max_hoffmann](http://twitter.maximilianhoffmann.c
 
 	<div id="controls">
 		<button id="mode-toggle" class="button">switch to html</button><button id="controls-hide" class="button button-transparent">&times;</button>
+
+		<button id="controls-general-button" class="button button-active">General
+		</button><button id="controls-element-button" class="button">Element</button>
+
+		<div id="controls-general">
+			<label class="label" for="typekit">TypeKit</label>
+			<input data-embed class="input input-text full-width" id="typekit" type="text" placeholder="k123abc" autofocus>
+			<label class="label" for="cloud-typography">Cloud Typography</label>
+			<input data-embed class="input input-text full-width" id="cloud-typography" type="text" placeholder="//cloud.typography.com/1234567/123456/css/fonts.css">
+			<label class="label space-above" for="font-family">Font Family</label>
+			<input data-less class="input input-text full-width" id="font-family" type="text" placeholder="Helvetica Neue, sans-serif">
+		</div>
 	</div>
 
-	<script src="js/bundle.min.js"></script>
+	<script src="js/bundle.js"></script>
 </body>
 </html>

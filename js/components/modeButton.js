@@ -16,8 +16,8 @@ function toggleMode() {
 	viewMode.classList.toggle('hidden');
 }
 
-function init() {
+function controlsButtons() {
 	button.addEventListener('click', toggleMode, false);
 }
 
-module.exports = init;
+module.exports = controlsButtons;

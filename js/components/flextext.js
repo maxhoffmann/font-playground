@@ -1,6 +1,8 @@
-function init() {
+var $ = require('./jq');
 
-	var resizingTextareas = [].slice.call(document.querySelectorAll('textarea[autoresize]'));
+function flextext() {
+
+	var resizingTextareas = $('textarea[autoresize]');
 
 	resizingTextareas.forEach(function(textarea) {
 		autoresize.bind(textarea)();
@@ -15,4 +17,4 @@ function autoresize() {
   this.scrollTop = this.scrollHeight;
 }
 
-module.exports = init;
+module.exports = flextext;

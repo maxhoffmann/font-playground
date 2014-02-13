@@ -1,5 +1,5 @@
 var storage = {};
-var namespace = 'fonttester_';
+var namespace = 'font-playground_';
 
 storage.get = function(key) {
 	return JSON.parse(localStorage.getItem(namespace + key));

@@ -1,9 +1,5 @@
 .button {
-	border: 2px solid #444;
-	background: transparent;
-	font-weight: bold;
-	.font-smoothing(true);
-	vertical-align: top;
+	&:extend(.input);
 	transition: box-shadow .5s;
 
 	&:focus {
@@ -25,3 +21,7 @@
 		box-shadow: none;
 	}
 }
+.button-active {
+	background-color: #444;
+}
+

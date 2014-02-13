@@ -1,16 +1,23 @@
 .hidden {
   display: none;
 }
+.full-width {
+  width: 100%;
+}
 .container {
   margin: 0 auto;
   width: 600px;
   max-width: 88%;
+}
+.space-above {
+  margin-top: 10px;
 }
 body {
   background-color: #4da1b3;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0) 1px);
   background-size: 100% 24px;
   background-position: 0 0;
+  overflow: hidden;
 }
 #controls-show {
   color: #000000;

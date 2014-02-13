@@ -5,9 +5,9 @@ function toggleControls() {
 	document.body.classList.toggle('controls-visible');
 }
 
-function init() {
+function controlsButtons() {
 	showControlsButton.addEventListener('click', toggleControls, false);
 	hideControlsButton.addEventListener('click', toggleControls, false);
 }
 
-module.exports = init;
+module.exports = controlsButtons;
