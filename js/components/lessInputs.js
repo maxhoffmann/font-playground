@@ -1,13 +1,13 @@
 var storage = require('./localstorage');
 var state = storage.get('state') || {};
-window.less.modifyVars(state);
 
-function lessInputs(inputs) {
+exports.enable = function(inputs) {
+	window.less.modifyVars(state);
 	inputs.forEach(function(input) {
 		if (state[input.id]) input.value = state[input.id];
 		input.addEventListener('input', updateLessVariable, false);
 	});
-}
+};
 
 function updateLessVariable() {
 	state = types[this.type](this, state);
@@ -24,5 +24,3 @@ function text(input, state) {
 	if (state[input.id] === "") delete state[input.id];
 	return state;
 }
-
-module.exports = lessInputs;

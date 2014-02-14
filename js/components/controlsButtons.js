@@ -1,13 +1,9 @@
-var showControlsButton = document.getElementById('controls-show');
-var hideControlsButton = document.getElementById('controls-hide');
+
+exports.enable = function(showElement, hideElement) {
+	showElement.addEventListener('click', toggleControls, false);
+	hideElement.addEventListener('click', toggleControls, false);
+};
 
 function toggleControls() {
 	document.body.classList.toggle('controls-visible');
 }
-
-function controlsButtons() {
-	showControlsButton.addEventListener('click', toggleControls, false);
-	hideControlsButton.addEventListener('click', toggleControls, false);
-}
-
-module.exports = controlsButtons;
