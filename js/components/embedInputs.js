@@ -1,13 +1,13 @@
 var storage = require('./localstorage');
 var state = storage.get('embed') || {};
 
-function embedInputs(inputs) {
+exports.enable = function(inputs) {
 	inputs.forEach(function(input) {
 		if (state[input.id]) input.value = state[input.id];
 		input.addEventListener('input', insertWebfontScript, false);
 		insertWebfontScript.bind(input)();
 	});
-}
+};
 
 function insertWebfontScript() {
 	state[this.id] = this.value;
@@ -48,5 +48,3 @@ function cloudTypography(input) {
 	link.href = input.value;
 	document.head.appendChild(link);
 }
-
-module.exports = embedInputs;

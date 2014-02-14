@@ -1,16 +1,16 @@
 var $ = require('./components/jq');
 
-var autoresizeTextAreas = require('./components/flextext');
-var enableModeButton = require('./components/modeButton');
-var enableControlsButtons = require('./components/controlsButtons');
-var enableLessInputs = require('./components/lessInputs');
-var enableEmbedInputs = require('./components/embedInputs');
+var flexibleTextAreas = require('./components/flexibleTextAreas');
+var modeButton        = require('./components/modeButton');
+var controlsButtons   = require('./components/controlsButtons');
+var lessInputs        = require('./components/lessInputs');
+var embedInputs       = require('./components/embedInputs');
 
-autoresizeTextAreas();
-enableModeButton();
-enableControlsButtons();
-enableEmbedInputs($('input[data-embed]'));
-enableLessInputs($('input[data-less]'));
-
-// var htmlInputs = [].slice.call(document.querySelectorAll('input[data-html]'));
-// htmlInputs.forEach(addListener('blur', updateHtml));
+flexibleTextAreas.enable($('textarea[autoresize]'));
+modeButton.enable(document.getElementById('mode-toggle'));
+controlsButtons.enable(
+	document.getElementById('controls-show'),
+	document.getElementById('controls-hide')
+);
+lessInputs.enable($('input[data-less]'));
+embedInputs.enable($('input[data-embed]'));
