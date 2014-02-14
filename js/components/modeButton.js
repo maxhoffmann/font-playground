@@ -1,5 +1,4 @@
 var parse = require('marked');
-var util = require('util');
 
 var markdown = document.getElementById('mode-edit-content');
 var editMode = document.getElementById('mode-edit');
