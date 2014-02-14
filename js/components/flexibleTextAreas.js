@@ -13,3 +13,5 @@ function autoresize() {
 	this.style.height = this.scrollHeight+'px';
 	this.scrollTop = this.scrollHeight;
 }
+
+exports.autoresize = autoresize;

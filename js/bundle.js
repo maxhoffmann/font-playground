@@ -96,6 +96,8 @@ function autoresize() {
 	this.scrollTop = this.scrollHeight;
 }
 
+exports.autoresize = autoresize;
+
 },{}],5:[function(require,module,exports){
 module.exports = function(selector) {
 	return Array.prototype.slice.call(document.querySelectorAll(selector));
@@ -106,11 +108,12 @@ var storage = require('./localstorage');
 var state = storage.get('state') || {};
 
 exports.enable = function(inputs) {
-	window.less.modifyVars(state);
 	inputs.forEach(function(input) {
 		if (state[input.id]) input.value = state[input.id];
-		input.addEventListener('input', updateLessVariable, false);
+		if (input.type === 'text') input.addEventListener('input', updateLessVariable, false);
+		if (input.type === 'checkbox') input.addEventListener('change', updateLessVariable, false);
 	});
+	window.less.modifyVars(state);
 };
 
 function updateLessVariable() {
@@ -120,11 +123,18 @@ function updateLessVariable() {
 }
 
 var types = {
-	'text': text
+	'text': text,
+	'checkbox': checkbox
 };
 
 function text(input, state) {
 	state[input.id] = input.value;
+	if (state[input.id] === "") delete state[input.id];
+	return state;
+}
+
+function checkbox(input, state) {
+	state[input.id] = input.checked;
 	if (state[input.id] === "") delete state[input.id];
 	return state;
 }
@@ -152,12 +162,14 @@ module.exports = storage;
 
 },{}],8:[function(require,module,exports){
 var parse = require('marked');
+var flexibleTextAreas = require('./flexibleTextAreas.js');
 
 var markdown = document.getElementById('mode-edit-content');
 var editMode = document.getElementById('mode-edit');
 var viewMode = document.getElementById('mode-view');
 
 exports.enable = function(element) {
+	viewMode.innerHTML = parse(markdown.value);
 	element.addEventListener('click', toggleMode, false);
 };
 
@@ -170,9 +182,10 @@ function toggleMode() {
 	}
 	editMode.classList.toggle('hidden');
 	viewMode.classList.toggle('hidden');
+	flexibleTextAreas.autoresize.bind(markdown)();
 }
 
-},{"marked":9}],9:[function(require,module,exports){
+},{"./flexibleTextAreas.js":4,"marked":9}],9:[function(require,module,exports){
 (function (global){/**
  * marked - a markdown parser
  * Copyright (c) 2011-2013, Christopher Jeffrey. (MIT Licensed)

@@ -15,9 +15,9 @@
 
 	<div id="modes">
 
-		<form id="mode-edit">
+		<form id="mode-edit" class="hidden">
 			<fieldset class="container">
-				<textarea id="mode-edit-content" autoresize autofocus># Font Playground
+				<textarea id="mode-edit-content" autoresize># Font Playground
 
 ## by [Max](http://maximilianhoffmann.com)
 
@@ -33,14 +33,14 @@ Stay up to date via twitter: [@max_hoffmann](http://twitter.maximilianhoffmann.c
 			</fieldset>
 		</form>
 
-		<div id="mode-view" class="container hidden"></div>
+		<div id="mode-view" class="container"></div>
 
 	</div>
 
 	<button id="controls-show" class="button button-transparent">&#9776;</button>
 
 	<div id="controls">
-		<button id="mode-toggle" class="button">switch to html</button><button id="controls-hide" class="button button-transparent">&times;</button>
+		<button id="mode-toggle" class="button">switch to markdown</button><button id="controls-hide" class="button button-transparent">&times;</button>
 
 		<button id="controls-general-button" class="button button-active">General
 		</button><button id="controls-element-button" class="button">Element</button>
@@ -52,6 +52,14 @@ Stay up to date via twitter: [@max_hoffmann](http://twitter.maximilianhoffmann.c
 			<input data-embed class="input input-text full-width" id="cloud-typography" type="text" placeholder="//cloud.typography.com/1234567/123456/css/fonts.css">
 			<label class="label space-above" for="font-family">Font Family</label>
 			<input data-less class="input input-text full-width" id="font-family" type="text" placeholder="Helvetica Neue, sans-serif">
+			<label class="label space-above" for="baseline-grid">Baseline Grid</label>
+			<input data-less id="baseline-grid" type="checkbox">
+			<label class="label space-above" for="font-smoothing">Font Smoothing (OS X)</label>
+			<input data-less id="font-smoothing" type="checkbox" checked>
+			<label class="label space-above" for="color">Text Color</label>
+			<input data-less class="input input-text full-width" id="color" type="text" placeholder="#333">
+			<label class="label space-above" for="background-color">Background Color</label>
+			<input data-less class="input input-text full-width" id="background-color" type="text" placeholder="#eee">
 		</div>
 	</div>
 
