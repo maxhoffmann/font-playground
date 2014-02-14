@@ -3,9 +3,14 @@ var state = storage.get('state') || {};
 
 exports.enable = function(inputs) {
 	inputs.forEach(function(input) {
-		if (state[input.id]) input.value = state[input.id];
-		if (input.type === 'text') input.addEventListener('input', updateLessVariable, false);
-		if (input.type === 'checkbox') input.addEventListener('change', updateLessVariable, false);
+		if (input.type === 'text') {
+			if (input.id in state) input.value = state[input.id];
+			input.addEventListener('input', updateLessVariable, false);
+		}
+		if (input.type === 'checkbox') {
+			input.checked = state[input.id];
+			input.addEventListener('change', updateLessVariable, false);
+		}
 	});
 	window.less.modifyVars(state);
 };
@@ -29,6 +34,5 @@ function text(input, state) {
 
 function checkbox(input, state) {
 	state[input.id] = input.checked;
-	if (state[input.id] === "") delete state[input.id];
 	return state;
 }
