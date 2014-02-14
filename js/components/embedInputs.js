@@ -11,8 +11,8 @@ exports.enable = function(inputs) {
 
 function insertWebfontScript() {
 	state[this.id] = this.value;
-	if (state[this.id] === "")	delete state[this.id];
-	webfontServices[this.id](this);
+	if (!state[this.id]) delete state[this.id];
+	if (state[this.id]) webfontServices[this.id](this);
 	storage.set('embed', state);
 }
 
